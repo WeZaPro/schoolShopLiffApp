@@ -149,9 +149,8 @@ export default {
                 //next after save db
                 // redirect to line app with qrcode
 
-                //https://line.me/ti/p/@798hmctv
-                //line://app/
-                //window.location.href = 'https://line.me/ti/p/@798hmctv'
+                // save db
+                this.saveAudience()
               } else {
                 var gtm_data_onMobile = {
                   botUserId: this.$route.query.botUserId, //use รับค่าจาก api
@@ -177,6 +176,37 @@ export default {
         })
         .catch(err => {
           this.occoredError = 'error:' + err
+        })
+    },
+    async saveAudience() {
+      let data = JSON.stringify({
+        userId: 'botUserId123',
+        client_id: 'client_id123',
+        userAgent: 'userAgent123',
+        ipAddress: '223.204.232.69',
+        uniqueEventId: 'uniqueEventId123',
+        sessionId: 'sessionId123',
+        utm_medium: 'FACKBOOK ADS AUDIENCE',
+        utm_source: 'FACKBOOK',
+      })
+
+      let config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: 'https://schoolshopapi-production.up.railway.app/api/audience',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: data,
+      }
+
+      axios
+        .request(config)
+        .then(response => {
+          console.log(JSON.stringify(response.data))
+        })
+        .catch(error => {
+          console.log(error)
         })
     },
 
