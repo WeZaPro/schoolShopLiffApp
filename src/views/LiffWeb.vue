@@ -150,7 +150,7 @@ export default {
                 // redirect to line app with qrcode
 
                 // save db
-                this.saveAudience()
+                //this.saveAudience()
               } else {
                 var gtm_data_onMobile = {
                   botUserId: this.$route.query.botUserId, //use รับค่าจาก api
