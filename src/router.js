@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import Liff from '@/views/LiffWeb.vue'
 
 export default createRouter({
   history: createWebHistory(),
@@ -17,8 +18,8 @@ export default createRouter({
       component: () => import('@/views/Contact.vue'),
     },
     {
-      path: '/liffWeb',
-      component: () => import('@/views/LiffWeb.vue'),
+      path: '/liffweb',
+      component: Liff,
     },
   ],
 })
